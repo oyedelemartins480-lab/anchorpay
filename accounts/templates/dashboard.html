@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AnchorPay Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        h1 { color: #1a1a2e; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #1a1a2e; color: white; }
+        tr:hover { background: #f0f0f0; }
+        .balance { font-weight: bold; color: #16a34a; }
+    </style>
+</head>
+<body>
+    <h1>AnchorPay Dashboard</h1>
+    <p>Persistent virtual account layer — live sandbox data</p>
+
+    <table>
+        <tr>
+            <th>Customer</th>
+            <th>Email</th>
+            <th>Balance</th>
+            <th>Active Account Number</th>
+            <th>Created</th>
+        </tr>
+        {% for account in accounts %}
+        <tr>
+            <td>{{ account.customer_name }}</td>
+            <td>{{ account.customer_email }}</td>
+            <td class="balance">₦{{ account.balance }}</td>
+            <td>
+                {% for nomba_acc in account.nomba_accounts.all %}
+                    {% if nomba_acc.is_active %}
+                        {{ nomba_acc.nomba_account_number }}
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>{{ account.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
