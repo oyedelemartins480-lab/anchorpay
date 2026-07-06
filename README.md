@@ -4,7 +4,7 @@
 
 AnchorPay gives businesses a permanent, stable account identity for every customer by managing Nomba's expiring virtual accounts behind the scenes — so businesses and customers never see a disruption.
 
-Built for the Nomba x DevCareer Hackathon 2026, Infrastructure Track (Team: Next-Unilag).
+Built for the Nomba x DevCareer Hackathon 2026, Infrastructure Track.
 
 ---
 
